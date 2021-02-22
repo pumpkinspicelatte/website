@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <link href="/clouds.css" rel="preload" as="style"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, target-densityDpi=device-dpi, shrink-to-fit=no"/>
+  <link href="/clouds.css" rel="stylesheet"/>
+  <style>
+  body {
+    display: flex;
+    color: #fede59;
+    overflow: hidden;
+    max-width: 100vw;
+    min-width: 100vw;
+    max-height: 100vh;
+    min-height: 100vh;
+    align-items: center;
+    background: #71dcff;
+    justify-content: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .c {
+    width: 80vw;
+    display: flex;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  ._404 {
+    z-index: 2;
+    color: #fede59;
+    font-size: 15vw;
+  }
+  ._1 {
+    color: whitesmoke;
+    font-size: 5vw;
+    text-align: center;
+  }
+  .btn {
+    z-index: 5;
+    width: 100%;
+    padding: 5px;
+    color: #fff;
+    font-size: 3vw;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #fede59;
+  }
+  .btn:hover {
+    color: #fede59;
+    background-color: whitesmoke;
+  }
+  .right {
+    float: right;
+    width: 60%;
+  }
+
+  hr {
+    padding: 0;
+    width: 100%;
+    border: none;
+    height: 10px;
+    z-index: -10;
+    color: whitesmoke;
+    text-align: center;
+    border-top: 5px solid whitesmoke;
+  }
+
+  @media only screen and (min-width: 501px) and (max-width: 950px) {
+    ._404 {
+      font-size: 30vw;
+    }
+    ._1 {
+      font-size: 10vw;
+    }
+    .btn {
+      font-size: 5vw;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    ._404 {
+      font-size: 30vw;
+    }
+    ._1 {
+      font-size: 10vw;
+    }
+    .btn {
+      font-size: 5vw;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div id='clouds'>
+    <div class='cloud x1'></div>
+    <div class='cloud x1_5'></div>
+    <div class='cloud x2'></div>
+    <div class='cloud x3'></div>
+    <div class='cloud x4'></div>
+    <div class='cloud x5'></div>
+  </div>
+  <div class='c'>
+    <div class='_404'>{{ error.status }}</div>
+    <hr>
+    <div class='_1'>{{ message }}</div>
+    <br/>
+    <a class='btn' href='/'>home</a>
+  </div>
+</body>
+
+</html>

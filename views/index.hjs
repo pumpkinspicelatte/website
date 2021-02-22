@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ title }}</title>
+    
+    {{#css}}
+      <link href="{{pre}}{{host}}{{.}}" rel="preload" as="style"/>
+    {{/css}}
+    {{#js}}
+      <link href="{{pre}}{{host}}{{.}}" rel="preload" as="script"/>
+    {{/js}}
+
+    <meta property="title" content="{{ title }}"/>
+    <meta property="description" content="{{ description }}"/>
+    <meta property="image" content="{{pre}}{{host}}/screenshot.png"/>
+    <meta property="url" content="{{pre}}{{host}}"/>
+
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}"/>
+    <meta property="og:image" content="{{pre}}{{host}}/screenshot.png"/>
+    <meta property="og:url" content="{{pre}}{{host}}"/>
+
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ description }}"/>
+    <meta property="twitter:image" content="{{pre}}{{host}}/screenshot.png"/>
+    <meta property="twitter:url" content="{{pre}}{{host}}"/>
+
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="application-name" content="{{ title }}"/>
+    <meta name="apple-mobile-web-app-title" content="{{ title }}"/>
+    <meta name="theme-color" content="#333333"/>
+    <meta name="msapplication-navbutton-color" content="#333333"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="msapplication-starturl" content="/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <link rel="icon" type="image/x-icon" sizes="192x192" href="favicon.ico"/>
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="192x192" href="favicon.ico"/>
+
+    <style>
+      body, div, aside, section {
+        margin: 0;
+        padding: 0;
+        cursor: default;
+      } .scrollable {
+        -webkit-overflow-scrolling: touch;
+      } .noselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      } footer {
+        color: #FFBD59;
+      }
+    </style>
+    {{#css}}
+      <link href="{{pre}}{{host}}{{.}}" rel="stylesheet">
+    {{/css}}
+  </head>
+
+  <body class="scrollable noselect">
+    <noscript>
+      <strong>
+        We're sorry but this app doesn't work properly without
+        JavaScript enabled. Please enable it to continue.
+      </strong>
+    </noscript>
+
+    <div id="app">loading...</div>
+    <script>
+      function lazy (elm) {
+        if (!elm || !elm.dataset || !elm.dataset.src) return;
+        if (!elm.nextSibling) return;
+        if (elm.nextSibling.classList.contains("toHide"))
+          elm.nextSibling.hidden = true;
+        elm.src = elm.dataset.src;
+        elm.classList.add("show");
+      }
+      function images () {
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++)
+          lazy(imgs[i]);
+      }
+      function linkAWS(url) {
+        var l = document.createElement("link");
+        l.href = url;
+        l.rel = "preconnect";
+        document.getElementsByTagName("head")[0].appendChild(l);
+      }
+    </script>
+    {{#js}}
+      <script src="{{pre}}{{host}}{{.}}"></script>
+    {{/js}}
+  </body>
+</html>
