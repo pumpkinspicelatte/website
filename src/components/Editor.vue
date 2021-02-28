@@ -23,31 +23,36 @@
 }
 
 #editor {
+  height: 50%;
   color: white;
   display: flex;
   overflow: auto;
-  flex-wrap: wrap;
-  font-family: monospace;
+  min-height: 50%;
+  flex-direction: column;
   background-color: black;
 } #editor .row {
   width: 100%;
   display: flex;
   flex-direction: row;
+  font-family: 'Courier New', Courier, monospace;
 } #editor .row div:first-child {
   color: bisque;
   display: flex;
   min-width: 30px;
   border-right: 1px bisque solid;
+  font-family: 'Courier New', Courier, monospace;
 } #editor .row div:last-child {
   flex: 1 0;
   display: flex;
   margin-left: 10px;
   overflow-x: visible;
+  font-family: 'Courier New', Courier, monospace;
 } #editor .row div:last-child span {
   max-height: 21px;
   overflow-x: visible;
   white-space: nowrap;
   padding-right: 8.5px;
+  font-family: 'Courier New', Courier, monospace;
 } .OPEN, .CLOSE {
   color: lightsalmon;
 } .TYPE {
@@ -72,14 +77,12 @@
 <script>
 import store from "@/store";
 
-import { id, os, edit, line, index, token, tokens, keywords } from '@/utils';
+import { id, token, tokens, keywords } from '@/utils';
 
-const TOP = 21;
-const SPACE = 8.5;
-const LEFT_BASE = 35;
-// TODO: windows + firefox width = 8px
-// TODO: linux + firefox width = 8.5px
-const LEFT = os() === 1 ? 7.75 : 8.45;
+const TOP = 18;
+const SPACE = 9.609;
+const LEFT_BASE = 41;
+const LEFT = 9.609;
 
 export default {
   data () {
@@ -205,7 +208,7 @@ export default {
       }
     },
 
-    async run (event) {
+    async run () {
       const { lines } = this;
 
       let code = '';
@@ -223,7 +226,7 @@ export default {
         code,
         callback: (stdout, stderr) => {
           const result = document.getElementById('output');
-          result.innerHTML = res.stdout || res.stderr;
+          result.innerHTML = stdout || stderr;
           document.toggleResult();
         }
       });
@@ -241,8 +244,9 @@ export default {
       this.currentLine = row;
       this.currentToken = toke;
 
-      if (token(event.target)) {
-        this.currentPosition = range().startOffset - 1;
+      const so = range();
+      if (token(event.target) && so) {
+        this.currentPosition = so.startOffset - 1;
       } else {
         this.currentPosition = lines[row][toke].content.length;
       }
@@ -261,7 +265,7 @@ export default {
     },
 
     down (event) {
-      const { copy, caret, lines, tokenize } = this;
+      const { copy, lines, tokenize } = this;
 
       // TODO: event.code does not exist on ms edge
       const i = this.currentLine;
@@ -457,6 +461,7 @@ export default {
             this.state = tokens.QUOTE;
             this.open = event.key;
           } lines[i][t].type = this.state;
+          break;
         default: {
           const cont = lines[i][t].content;
 

@@ -18,38 +18,38 @@
 </template>
 
 <style scoped>
- img {
+footer {
+height: 49px;
+    border-top: 1px solid orange;
+} img {
   width: 200px;
 } nav {
   display: flex;
-  min-width: 80%;
+  min-width: 100%;
   min-height: 100%;
-  max-width: 1152px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 } nav.right {
   justify-content: flex-end;
 } a {
-  color: black;
+  width: 75px;
+  height: 47px;
+  display: flex;
+  color: orange;
   font-size: 18px;
   cursor: pointer;
+  align-items: center;
   text-decoration: none;
+  justify-content: center;
+  border-top: 3px solid white;
 } a:hover, a:active {
-  color: #e98667;
   opacity: 0.85;
-  text-decoration: underline;
+  color: #aaaaaa;
+  border-top: 3px solid #aaaaaa;
 } .active {
-  color: #e98667;
+  border-top: 3px solid orange;
 } .active img {
   opacity: 0.5;
-} .logout {
-  color: white;
-  font-size: 14px;
-  padding: 7px 30px;
-  border-radius: 5px;
-  background-color: #FFBD59;
-} a.logout:hover {
-  color: #777777;
 }
 </style>
 

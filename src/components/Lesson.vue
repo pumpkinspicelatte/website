@@ -25,11 +25,12 @@
 }
 
 #lesson {
+  height: 50%;
   display: flex;
   overflow: auto;
   flex-wrap: wrap;
-  min-height: 100%;
-  max-height: 100%;
+  max-height: 50%;
+  min-height: 50%;
   justify-content: center;
 } #lesson p {
   display: flex;

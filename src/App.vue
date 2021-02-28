@@ -1,9 +1,9 @@
 <template>
   <main>
     <section>
-      <Lesson />
-      <Editor />
-      <Output />
+      <Lesson v-if="lesson"/>
+      <Editor v-if="editor"/>
+      <Output v-if="output"/>
     </section>
     <Navigation />
   </main>
@@ -16,6 +16,11 @@ main {
   min-width: 100vw;
   max-height: 100vh;
   min-height: 100vh;
+} section {
+  overflow: auto;
+  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
+  max-height: calc(100vh - 50px);
 }
 </style>
 
@@ -31,6 +36,16 @@ export default {
     Lesson,
     Output,
     Navigation,
+  },
+  data () {
+    return {
+      lesson: true,
+      editor: true,
+      output: false,
+    };
+  },
+  mounted () {
+    open()
   }
 }
 </script>
