@@ -4,6 +4,7 @@ const name = table.set('content').TableName;
 module.exports = {
 
   table: () => table.table(name),
+  count: () => table.count(name),
   get: (id) => table.get(name, id),
   all: (last) => table.all(name, last),
   find: (params, last) => table.find(name, params, last),

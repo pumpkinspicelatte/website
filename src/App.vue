@@ -1,11 +1,11 @@
 <template>
   <main>
-    <Navigation />
     <section>
       <Lesson />
       <Editor />
       <Output />
     </section>
+    <Navigation />
   </main>
 </template>
 

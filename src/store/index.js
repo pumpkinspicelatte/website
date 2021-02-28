@@ -5,7 +5,9 @@ import mutations from "./mutations";
 
 const state = {
   info: {
-    feature: "none"
+    lesson: true,
+    editor: true,
+    output: false,
   },
 };
 

@@ -1,6 +1,9 @@
 import tokens from './tokens';
 import keywords from './keywords';
 
+const emit = require("./emit");
+const api = 'https://interpreter.pumpkinspicelatte.org/code'; 
+
 function id (elm) {
   let id = elm.getAttribute('id');
   if (!id && !!elm.getAttribute('class')) {
@@ -34,11 +37,5 @@ function os () {
 }
 
 export {
-  id,
-  os,
-  edit,
-  line,
-  token,
-  tokens,
-  keywords,
+  emit, id, os, api, edit, line, token, tokens, keywords
 };

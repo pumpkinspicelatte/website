@@ -219,19 +219,14 @@ export default {
         if (prev !== code) code += '\n';
       }
 
-      const res = await fetch('https://interpreter.pumpkinspicelatte.org/code', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'text/plain',
-          "Accept": 'application/json',
-        },
-        mode: 'cors',
-        body: code,
-      }).then(res => res.json())
-
-      const result = document.getElementsByClassName('result')[0];
-      result.innerHTML = res.stdout || res.stderr;
-      document.toggleResult();
+      store.dispatch("run", {
+        code,
+        callback: (stdout, stderr) => {
+          const result = document.getElementById('output');
+          result.innerHTML = res.stdout || res.stderr;
+          document.toggleResult();
+        }
+      });
     },
 
     focus (event) {

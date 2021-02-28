@@ -1,20 +1,20 @@
 <template>
-  <header>
+  <footer>
     <nav>
       <a href="/"
         @click="page($event, 'lesson')"
-        :class="feature == 'lesson' ? 'active' : ''"
+        :class="lesson ? 'active' : ''"
       ><span>{{ feature == 'lesson' ? 'Lesson' : 'Lesson' }}</span></a>
       <a href="/"
         @click="page($event, 'editor')"
-        :class="feature == 'editor' ? 'active' : ''"
+        :class="editor ? 'active' : ''"
       ><span>{{ feature == 'editor' ? 'Editor' : 'Editor' }}</span></a>
       <a href="/"
         @click="page($event, 'output')"
-        :class="feature == 'output' ? 'active' : ''"
+        :class="output ? 'active' : ''"
       ><span>{{ feature == 'output' ? 'Output' : 'Output' }}</span></a>
     </nav>
-  </header>
+  </footer>
 </template>
 
 <style scoped>
@@ -58,32 +58,15 @@ import store from "@/store";
 export default {
   data () {
     return {
-      hide: false,
-      shrink: false,
-      feature: "none",
-      greeting: "loading..."
+      lesson: true,
+      editor: true,
+      output: false,
     };
-  },
-  mounted () {
-    store.dispatch("user", {
-      callback: ({ success, result }) => {
-        if (!success) window.location.href = "/login";
-        else this.greeting = result.message;
-        this.feature = store.state.info.feature;
-        setTimeout(() => {
-          this.hide = true;
-          setTimeout(() => {
-            this.shrink = true;
-            document.body.classList.add("hide");
-          }, 350);
-        }, 1500);
-      },
-    });
   },
   methods: {
     page (event, feature) {
       event.preventDefault();
-      this.feature = feature;
+      this[feature] = !this[feature];
       store.dispatch("page", { feature });
     }
   }

@@ -128,30 +128,31 @@ export default {
   },
   methods: {
     getTotal () {
-      (async () => {
-        const res = await fetch(`/lesson/count`).then(res => res.json());
-        if (res.success) {
-          this.total = res.result;
-        }
-      })();
+      store.dispatch("count", {
+        callback: ({ success, result }) => {
+          if (!success) return;
+          this.total = result;
+        },
+      });
     },
 
     getLesson () {
-      (async () => {
-        const res = await fetch(`/lesson/${this.lesson}`).then(res => res.json());
-        if (res.success) {
-          this.lines = res.result;
-        }
-      })();
+      store.dispatch("lesson", {
+        id: this.lesson,
+        callback: ({ success, result }) => {
+          if (!success) return;
+          this.lines = result;
+        },
+      });
     },
 
-    back (event) {
+    back () {
       this.getTotal();
       if (this.lesson > 1) this.lesson--;
       this.getLesson();
     },
 
-    next (event) {
+    next () {
       if (this.lesson < this.total) this.lesson++;
       this.getLesson();
       this.getTotal();

@@ -21,31 +21,30 @@ router.get('/', (req, res, next) => {
   res.render('index', obj);
 });
 
-router.get('/count', (req, res, next) => {
-  content.count((err, data) => {
-    res.json(
-      std.response(err, data)
-    );
-  });
+router.get('/lesson/count', async (req, res, next) => {
+  await content.count()
+  .then(({ data }) => res.json({
+    success: true,
+    result: data,
+  })).catch(err => res.json({
+    success: false,
+    result: err,
+  }));
 });
 
-router.get('/:pos', (req, res, next) => {
-  content.find({
-    pos: req.params.pos
-  }, (err, data) => {
-    res.json(
-      std.response(
-        err,
-        data && data.length ? data[0].content : [{
-          type: 'loading',
-          content: ['No content to display!'],
-        }]
-      )
-    );
-  });
+router.get('/lesson/:pos', async (req, res, next) => {
+  const { pos } = req.params;
+  await content.get(`lesson${pos}`)
+  .then(data => res.json({
+    success: true,
+    result: data && data.content ? data.content : [{
+      type: 'loading',
+      content: ['No content to display!'],
+    }],
+  })).catch(err => res.json({
+    success: false,
+    result: err,
+  }));
 });
-
-module.exports = router;
-
 
 module.exports = router;
