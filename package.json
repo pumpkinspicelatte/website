@@ -15,11 +15,11 @@
     "url": "git+https://gitlab.com/pumpkinspicelatte/website.git"
   },
   "keywords": [
-    "Node.js",
-    "Vue.js",
-    "DynamoDB",
     "S3",
     "AWS",
+    "Vue.js",
+    "Node.js",
+    "DynamoDB",
     "Pumpkin Spice Latte"
   ],
   "author": "Pumpkin Spice Latte Co",

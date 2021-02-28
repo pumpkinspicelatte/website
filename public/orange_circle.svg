@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="130" width="130">
+  <circle cx="65" cy="65" r='50' stroke="orange" stroke-width="0" fill="orange" />
+  <circle cx="65" cy="65" r='60' stroke="orange" stroke-width="7" fill="none" />
+  <text x="27" y="78" fill="white" font-size="45px" font-family="arial">((`))</text>
+</svg>

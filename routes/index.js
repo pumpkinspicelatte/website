@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const content = require('../controllers/content');
+
 const title = 'Pumpkin Spice Latte';
-const description = `Pumpkin Spice Latte - The Programming Language!
+const description = `Pumpkin Spice Latte - The Programming Language
 Learn to code through an easy to use coding language
 that is lightweight and platform independent.`;
 
@@ -18,5 +20,32 @@ router.get('/', (req, res, next) => {
   obj.pre = obj.host.indexOf('localhost') !== -1 ? 'http://' : 'https://';
   res.render('index', obj);
 });
+
+router.get('/count', (req, res, next) => {
+  content.count((err, data) => {
+    res.json(
+      std.response(err, data)
+    );
+  });
+});
+
+router.get('/:pos', (req, res, next) => {
+  content.find({
+    pos: req.params.pos
+  }, (err, data) => {
+    res.json(
+      std.response(
+        err,
+        data && data.length ? data[0].content : [{
+          type: 'loading',
+          content: ['No content to display!'],
+        }]
+      )
+    );
+  });
+});
+
+module.exports = router;
+
 
 module.exports = router;

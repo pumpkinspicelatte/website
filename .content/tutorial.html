@@ -1,0 +1,134 @@
+<h2>the alpha and the omega</h2>
+<p>like most programming languages, psl has a beginning and an end.
+<br/>these are called open and closing tags which look like:
+<div class='code'>
+  &lt;3
+  <br/>
+  &lt;/3
+</div>
+<br/>they're required at the beginning and end of every program that you write in psl.
+</p>
+
+<h2>hello, world</h2>
+<p>so, we need an openning tag and a closing tag to write a program in psl
+<br/>how do we get something to actually happen?
+<div class='code'>
+  &lt;3
+  <br/><span style='padding-left: 20px;'>can.i.just.say.something:'hello, world!'</span>
+  <br/>&lt;/3
+</div>
+<br/><b>can.i.just.say.something</b> is how we "print to our screen", but it's
+<br/>just writing to a file in our file system called standard output, or <b>stdout</b>
+<br/>that eventually gets displayed somewhere
+<br/>
+<br/>to display <b>error</b> messages, use <b>stderr</b> or standard error
+<br/>in psl, <b>i.cant.even</b> is used
+<div class='code'>
+  &lt;3
+  <br/><span style='padding-left: 20px;'>i.cant.even:'error message'</span>
+  <br/>&lt;/3
+</div>
+</p>
+
+<h2>do some stuff</h2>
+<p>so, we have the beginning and end of the program down...how do we actually do something? let's try writing a basic program, then i'll explain what we just did:
+<br/><textarea id="basicprogram" rows="10" cols="65" disabled></textarea>
+<br/>the open and closing tags are there at the beginning and end of the program. cool.
+</p>
+
+
+<h2>warning: this is about to get deep</h2>
+<h3 data-toggle="collapse" data-target="#vardec">variable declaration and instantiation:</h3>
+<p id="vardec" class="collapse">
+<span style="background-color: #2c2c2c; font: 15px Courier; color: #eb9c36;">
+<br/>tall ana = 15
+<br/>tall tori = 15
+</span>
+<br/>variables in a programming language are like variables in an algebra class.
+<br/>
+<br/>if algebra wasn't your strong suit, then let me put it in <i>layman's</i> terms:
+<br/>
+<br/>when you order your <b>psl</b> at <b>Starbucks</b>, you normally say the size, what you want in it and your name.
+<br/>a variable is like a <b>Starbucks</b> cup that can have a size, put stuff into and have your name written onto.
+<br/>
+<br/>the <b>tall</b>, in the coding example, is the size of our cup or <b>variable</b>.
+<br/>in computer science terms, the size is called a <b>type</b>
+<br/>
+<br/>the name, <b>ana</b> or <b>tori</b>, we give our cup must follow the size like when we order our tasty beverages.
+<br/>in computer science terms, the name is called an <b>identifier</b>
+<br/>
+<br/>the equals sign, in the code, is just saying: <i>this is what i want inside my cup</i>,
+<br/>and anything after the <b>=</b> is what gets put inside of our cups.
+<br/>
+<br/>so, right now, we have 2 beverages:
+<br/>a <b>tall</b> for <b>ana</b> with <b>15</b> (let's say ml of coffee) inside of it
+<br/>a <b>tall</b> for <b>tori</b> with <b>15</b> (let's say ml of coffee) inside of it
+<br/>gucci.
+</p>
+<h3 data-toggle="collapse" data-target="#umso">um...so...totes...duh:</h3>
+<p id="umso" class="collapse">
+<span style="background-color: #2c2c2c; font: 15px Courier; color: #eb9c36;">
+<br/>um #ana like #tori:
+<br/>  #tori = #tori + 1
+<br/>duh
+</span>
+<br/>this section, in computer science terms, is called an <b>if block</b>
+<br/>
+<br/>basically, when you want to do something, but want to make sure it only happens at a certain time, you want to use an <b>if block</b>
+</p>
+<h3 data-toggle="collapse" data-target="#umsolay">in layman's terms:</h3>
+<p id="umsolay" class="collapse">
+<br/>say, <b>Starbucks</b> wants to celebrate <i>National Coffee Day</i> (09-29) by having a <b>bogo</b> sale.
+<br/>
+<br/>when ringing up your drinks at the register, the register would have to check the date, and <b>if</b> the date is 09-29, <b>then</b> the register gives the customer the bogo discount.
+<br/>
+<br/>in that sentence, above, the <i>if...then...</i> would be considered an <b>if block</b> in a programmer's perspective!
+</p>
+<h3 data-toggle="collapse" data-target="#umsopsl">in psl:</h3>
+<p id="umsopsl" class="collapse">
+<br/>think of <b>um</b> as <b>if</b> and the <b>:</b> (colon) as <b>then</b>
+<br/><b>duh</b> would be the <b>period</b> at the end of the sentence.
+<br/>
+<br/><b>in layman's terms:</b>
+<br/>everything between <b>if</b> and <b>then</b>, in computer science terms, is called a <b>conditional</b>. so, in our example above, <i>the date is 09-29</i> would be our <b>condition</b>
+<br/>
+<br/>in <b>psl</b>:
+<br/>the <b>condition</b> would look something like <b>#date like "09-29"</b>
+<br/>
+<br/><b>in layman's terms:</b>
+<br/>everything after the <b>then</b> would be what we'd want to happen if the condition is <b>true</b>. so, in our example, <i>the register gives the customer the bogo discount</i> would only happen if the date was 09-29 or <i>National Coffee Day</i>.
+<br/>
+<br/>in <b>psl</b>:
+<br/>this would look something like <b>#subtotal = #subtotal / 2</b>
+</p>
+<h3 data-toggle="collapse" data-target="#ogprog">BACK TO OUR ORIGINAL PROGRAM:</h3>
+<p id="ogprog" class="collapse">
+<span style="background-color: #2c2c2c; font: 15px Courier; color: #eb9c36;">
+<br/>um #ana like #tori:
+<br/>  #tori = #tori + 1
+<br/>duh
+</span>
+<br/>is saying: if the amount inside of ana's cup <i>equals</i> the amount inside of tori's cup, then add 1 (ml of coffee) to tori's cup.
+<br/>
+<br/>if the amount inside of ana's cup does not equal the amount in tori's cup, then skip everything before <b>duh</b> (or don't add 1 ml of coffee to tori's cup).
+</p>
+<h3 data-toggle="collapse" data-target="#gimme">GIMME GIMME:</h3>
+<p id="gimme" class="collapse">
+<br/>so, you did all that fancy math, now it's time to get the computer to show you the results.
+<br/>
+<br/>to do this we have to <b>print</b> to the screen using an output file called <b>standard output</b> or <b>stdout</b>.
+<br/>
+<br/>in <b>psl</b>:
+<br/>we do this by using the line <b>can.i.just.say.something:</b>
+<br/>
+<br/>anything that's not stored inside of a variable, you have to put in quotes.
+<br/>so, if i wanted to say <i>Hello, world!</i> to the person using my computer, i'd write something like:
+<span style="background-color: #2c2c2c; font: 15px Courier; color: #eb9c36;">
+<br/>can.i.just.say.something: "Hello, world!"
+</span>
+<br/>
+<br/>in our programming example, our output is going to read <b>15 16</b>, because tori gets 1 added to her cup.
+<br/>
+<br/>and, that's pretty much it for this program! now, you've learned a little bit about this language, so go play around with the text editor and write some of your own programs!
+</p>
+<br/>
