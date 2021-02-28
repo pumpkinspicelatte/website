@@ -1,36 +1,24 @@
 <template>
-  <header :class="shrink ? 'hide' : ''">
+  <header>
     <nav>
       <a href="/"
-        @click="page($event, 'dashboard')"
-        :class="feature == 'dashboard' ? 'active' : ''"
-      ><span>Dashboard</span></a>
+        @click="page($event, 'lesson')"
+        :class="feature == 'lesson' ? 'active' : ''"
+      ><span>{{ feature == 'lesson' ? 'Lesson' : 'Lesson' }}</span></a>
       <a href="/"
-        @click="page($event, 'profile')"
-        :class="feature == 'profile' ? 'active' : ''"
-      ><span>Dossier</span></a>
-      <a class="logout" href="/logout">Logout</a>
+        @click="page($event, 'editor')"
+        :class="feature == 'editor' ? 'active' : ''"
+      ><span>{{ feature == 'editor' ? 'Editor' : 'Editor' }}</span></a>
+      <a href="/"
+        @click="page($event, 'output')"
+        :class="feature == 'output' ? 'active' : ''"
+      ><span>{{ feature == 'output' ? 'Output' : 'Output' }}</span></a>
     </nav>
   </header>
 </template>
 
 <style scoped>
-footer {
-  left: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  z-index: 10;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  position: fixed;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-top: 1px solid #f3f3f3;
-} img {
+ img {
   width: 200px;
 } nav {
   display: flex;
