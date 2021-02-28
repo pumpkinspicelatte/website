@@ -19,8 +19,8 @@
 
 <style scoped>
 footer {
-height: 49px;
-    border-top: 1px solid orange;
+  height: 49px;
+  border-top: 1px solid orange;
 } img {
   width: 200px;
 } nav {
