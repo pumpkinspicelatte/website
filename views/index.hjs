@@ -42,7 +42,6 @@
       body, div, aside, section {
         margin: 0;
         padding: 0;
-        cursor: default;
         font-family: Arial, Helvetica, sans-serif;
       } .scrollable {
         -webkit-overflow-scrolling: touch;
