@@ -23,7 +23,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/lesson/count', async (req, res, next) => {
   await content.count()
-  .then(({ data }) => res.json({
+  .then(data => res.json({
     success: true,
     result: data,
   })).catch(err => res.json({

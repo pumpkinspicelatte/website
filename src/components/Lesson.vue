@@ -34,6 +34,7 @@
   left: 10px;
   text-shadow: -3px 3px 3px rgb(228, 148, 0);
 } #next:hover, #back:hover {
+  box-shadow: none;
   text-shadow: none;
 } #next:active, #back:active {
   transition: 0.3s;
@@ -116,13 +117,8 @@
 
 @media only screen and (max-width:800px){
   #lesson p {
-    max-width: 95%;
-    min-width: 95%;
-  } #lesson p.header span,
-  #lesson p.loading span {
-    font-size: 5vw;
-  } #lesson p.paragraph {
-    font-size: 4vw;
+    max-width: 75%;
+    min-width: 75%;
   }
 }
 </style>
