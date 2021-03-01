@@ -24,6 +24,7 @@
 
 #editor {
   height: 50%;
+  cursor: text;
   color: white;
   display: flex;
   overflow: auto;
