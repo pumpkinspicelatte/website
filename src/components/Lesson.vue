@@ -1,7 +1,7 @@
 <template>
   <aside id="lesson">
-    <button id="back" aria-label="previous lesson" class="primary circle" @click="back($event)">&lt;</button>
-    <button id="next" aria-label="next lesson" class="primary circle" @click="next($event)">&gt;</button>
+    <div id="back" aria-label="previous lesson" class="primary circle" @click="back($event)">&lt;</div>
+    <div id="next" aria-label="next lesson" class="primary circle" @click="next($event)">&gt;</div>
     <p v-for="(line, i) in lines" :key="`lesson-line-${i}`" :class="line.type">
       <span v-for="(content, j) in line.content" :key="`${i}-content-${j}`">{{ content }}</span>
     </p>
@@ -10,18 +10,35 @@
 
 <style scoped>
 #next, #back {
+  margin: 0;
+  top: 10px;
+  padding: 0;
   width: 50px;
   z-index: 10;
   height: 50px;
-  font-size: 35px;
-  margin-top: 10px;
-  align-self: center;
+  display: flex;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  background-color: orange;
+  box-shadow: 0 3px 5px #ddd;
 } #next {
-  float: right;
-  margin-right: 10px;
+  right: 10px;
+  text-shadow: 3px 3px 3px rgb(228, 148, 0);
 } #back {
-  float: left;
-  margin-left: 10px;
+  left: 10px;
+  text-shadow: -3px 3px 3px rgb(228, 148, 0);
+} #next:hover, #back:hover {
+  text-shadow: none;
+} #next:active, #back:active {
+  transition: 0.3s;
+  text-shadow: none;
+  box-shadow: 0 0 7px orange;
 }
 
 #lesson {
