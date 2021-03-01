@@ -43,9 +43,6 @@ export default {
       editor: true,
       output: false,
     };
-  },
-  mounted () {
-    open()
   }
 }
 </script>
