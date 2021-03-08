@@ -19,8 +19,8 @@
 
 <style scoped>
 footer {
-  height: 49px;
-  border-top: 1px solid orange;
+  height: 50px;
+  background-color: orange;
 } img {
   width: 200px;
 } nav {
@@ -35,19 +35,19 @@ footer {
   width: 75px;
   height: 47px;
   display: flex;
-  color: orange;
+  color: white;
   font-size: 18px;
   cursor: pointer;
   align-items: center;
   text-decoration: none;
   justify-content: center;
-  border-top: 3px solid white;
-} a:hover, a:active {
-  opacity: 0.85;
-  color: #aaaaaa;
-  border-top: 3px solid #aaaaaa;
-} .active {
   border-top: 3px solid orange;
+} a:hover, a:active {
+  color: grey;
+  border-top: 3px solid grey;
+} .active {
+  color: white;
+  border-top: 3px solid white;
 } .active img {
   opacity: 0.5;
 }

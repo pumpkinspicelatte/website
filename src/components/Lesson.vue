@@ -34,7 +34,7 @@
   left: 10px;
   text-shadow: -3px 3px 3px rgb(228, 148, 0);
 } #next:hover, #back:hover {
-  box-shadow: none;
+  opacity: 0.85;
   text-shadow: none;
 } #next:active, #back:active {
   transition: 0.3s;
