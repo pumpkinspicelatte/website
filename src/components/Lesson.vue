@@ -47,8 +47,6 @@
   display: flex;
   overflow: auto;
   flex-wrap: wrap;
-  max-height: 50%;
-  min-height: 50%;
   justify-content: center;
 } #lesson p {
   display: flex;

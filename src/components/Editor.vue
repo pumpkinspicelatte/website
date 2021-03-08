@@ -23,12 +23,10 @@
 }
 
 #editor {
-  height: 50%;
   cursor: text;
   color: white;
   display: flex;
   overflow: auto;
-  min-height: 50%;
   flex-direction: column;
   background-color: black;
 } #editor .row {
