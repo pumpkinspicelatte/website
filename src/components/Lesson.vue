@@ -43,7 +43,6 @@
 }
 
 #lesson {
-  height: 50%;
   display: flex;
   overflow: auto;
   flex-wrap: wrap;
